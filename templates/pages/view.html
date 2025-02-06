@@ -1,0 +1,28 @@
+{% extends "layouts/main.html" %}
+
+{% block title %}
+    <title>Todo | View Task</title>
+{% endblock title %}
+
+{% block content %}
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-12 col-md-8 col-lg-10 mx-auto">
+            <div class="card shadow-sm">
+                <div class="card-header bg-info text-white">
+                    <h3>Task Details</h3>
+                </div>
+
+                <div class="card-body">
+                    <h1>{{ views.title }}</h1>
+                    <p><strong>Description:</strong> {{ views.description }}</p>
+                    <p><strong>Status:</strong> {% if views.complete %}Completed{% else %}Incomplete{% endif %}</p>
+                    <p><strong>Created on:</strong> {{ views.create|date:"F d, Y" }}</p>
+
+                    <a href="{% url 'task' %}" class="btn btn-primary">Back to Tasks</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock content %}

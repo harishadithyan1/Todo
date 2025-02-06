@@ -1,0 +1,46 @@
+{% extends "layouts/main.html" %}
+
+{% block title %}
+    <title>Todo | Create</title>
+{% endblock title %}
+
+{% block content %}
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col-12 col-md-8 col-lg-6 mx-auto">
+                <div class="card shadow-sm">
+                    <div class="card-body">
+                        <form method="POST">
+                            <h1 class="text-center mb-4">Create a Task</h1>
+                            {% csrf_token %}
+                            
+                            <!-- Title -->
+                            <div class="mb-3">
+                                <label for="title" class="form-label">Title</label>
+                                <input type="text" name="title" id="title" class="form-control" placeholder="Enter task title" required>
+                            </div>
+
+                            <!-- Description -->
+                            <div class="mb-3">
+                                <label for="description" class="form-label">Description</label>
+                                <textarea name="description" id="description" class="form-control" rows="4" placeholder="Enter task description" required></textarea>
+                            </div>
+
+                            <!-- Status Dropdown -->
+                            <div class="mb-3">
+                                <label for="complete" class="form-label">Status</label>
+                                <select name="complete" id="complete" class="form-select">
+                                    <option value="False" selected>Pending</option>
+                                    <option value="True">Completed</option>
+                                </select>
+                            </div>
+
+                            <!-- Submit Button -->
+                            <button type="submit" class="btn btn-primary w-100">Submit</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock content %}
