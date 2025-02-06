@@ -40,7 +40,7 @@ def CreateList(request):
 
 @login_required
 def deletetask(request, task_id):
-    task = get_object_or_404(Tasks, id=task_id)
+    task = get_object_or_404(Tasks, pk=task_id)
     task.delete()
     return redirect('task') 
 
